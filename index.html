@@ -1,0 +1,116 @@
+<!-- hierin bevinden zich verwijzingen naar twee verschillende p5 scripts
+2 hiervan zijn commented out -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Bitcoin B</title>
+  <script type="text/javascript"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+  <script src="sketchSF.js"></script>
+  <script src="star.js"></script>
+
+
+  <title>B conversion</title>
+
+  <div id="head">
+    <h1>Type or paste your text to convert all B's into ₿itcoin ₿'s</h1>
+  </div>
+  <style>
+    #head {
+      color: white;
+      background-color: rgba(173, 216, 230, 0);
+      border-top: 12px double rgba(0, 0, 0, 0);
+      border-bottom: 12px double rgba(0, 0, 0, 0);
+      text-align: center;
+
+    }
+
+    #field1 {
+      color: rgb(228, 26, 26);
+      background-color: rgb(250, 250, 122, 0);
+      font-size: 50px;
+      font-weight: 800;
+      text-align: center;
+      border-bottom: 12px double rgba(0, 0, 0, 0);
+    }
+
+    textarea {
+      font-size: 20pt;
+      font-family: Arial;
+    }
+
+    #button {
+      background-color: rgb(151, 250, 147, 0);
+
+      text-align: center;
+    }
+
+    #field2 {
+      background-color: rgba(235, 123, 151, 0);
+      text-align: center;
+      border-top: 12px double rgba(0, 0, 0, 0);
+      border-bottom: 12px double rgba(0, 0, 0, 0);
+    }
+
+    body {
+      background-color: black;
+    }
+  </style>
+  <script>
+    function convertB() {
+      var txtName = document.getElementById("txtName");
+      var txtOutput = document.getElementById("txtOutput");
+      var name = txtName.value;
+      var endr = name.replace(/B/g, '₿');
+      txtOutput.value = endr
+    }
+  </script>
+  <script>
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("txtOutput");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+  </script>
+
+</head>
+
+<body>
+
+
+  <form action="">
+    <!-- <fieldset> -->
+
+    <div id="field1">
+      <textarea rows="5" cols="25" input type="text" id="txtName"></textarea>
+    </div>
+
+    <div id="button"><input type="button" value="Bitcoin B's GO!" onclick="convertB()" />
+    </div>
+
+
+    <div id="field2">
+      <textarea rows="5" cols="25" id="txtOutput"></textarea>
+    </div>
+
+    <div id="button"><input type="button" value="copy output text" onclick="myFunction()" />
+    </div>
+    <!-- <button onclick="myFunction()">Copy text</button> -->
+
+    <!-- </fieldset> -->
+  </form>
+</body>
+
+</html>
