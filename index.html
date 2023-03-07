@@ -65,7 +65,7 @@
       var txtName = document.getElementById("txtName");
       var txtOutput = document.getElementById("txtOutput");
       var name = txtName.value;
-      var endr = name.replace(/B/g, '₿');
+      var endr = name.replace(/B/gi, '₿');
       txtOutput.value = endr
     }
   </script>
